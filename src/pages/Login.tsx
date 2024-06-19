@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -34,10 +35,14 @@ const Login = () => {
             <Label htmlFor="password">Password</Label>
             <Input id="password" type="password" required />
           </div>
-        </CardContent>
-        <CardFooter>
           <Button className="w-full">Sign in</Button>
-        </CardFooter>
+          <div className="mt-4 text-center text-sm">
+            Don't have an account?{" "}
+            <Link to={"/register"} className="underline">
+              Sign Up
+            </Link>
+          </div>
+        </CardContent>
       </Card>
     </div>
   );
