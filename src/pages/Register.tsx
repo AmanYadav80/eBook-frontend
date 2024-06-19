@@ -31,13 +31,13 @@ const Register = () => {
               <Input
                 id="email"
                 type="email"
-                placeholder="m@example.com"
+                placeholder="john@gmail.com"
                 required
               />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" />
+              <Input id="password" type="password" placeholder="john@123" />
             </div>
             <Button type="submit" className="w-full">
               Create an account

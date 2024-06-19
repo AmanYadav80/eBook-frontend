@@ -3,7 +3,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -27,13 +26,13 @@ const Login = () => {
             <Input
               id="email"
               type="email"
-              placeholder="m@example.com"
+              placeholder="john@gmail.com"
               required
             />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" required />
+            <Input id="password" type="password" placeholder="john@123" required />
           </div>
           <Button className="w-full">Sign in</Button>
           <div className="mt-4 text-center text-sm">
