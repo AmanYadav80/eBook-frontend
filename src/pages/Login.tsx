@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { login } from "@/http/api";
 import { useMutation } from "@tanstack/react-query";
+import { LoaderCircle } from "lucide-react";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -23,7 +24,7 @@ const Login = () => {
     onSuccess: () => {
       navigate('/dashboard/home');
     },
-  })
+  });
 
   const handleLoginClick = () => {
     const email = emailRef?.current?.value;
@@ -67,7 +68,12 @@ const Login = () => {
               required
             />
           </div>
-          <Button onClick={handleLoginClick} className="w-full">Sign in</Button>
+          <Button onClick={handleLoginClick} className="w-full" disabled={mutation.isPending} >
+           {
+             mutation.isPending && <LoaderCircle className="animate-spin" />
+           }
+            <span className="ml-2">Sign in</span>
+          </Button>
           <div className="mt-4 text-center text-sm">
             Don't have an account?{" "}
             <Link to={"/auth/register"} className="underline">
