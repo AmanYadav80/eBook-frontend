@@ -8,9 +8,18 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  const handleLoginClick = () => {
+    const email = emailRef?.current?.value;
+    const password = passwordRef?.current?.value;
+  }
+
   return (
     <div className="flex justify-center items-center h-screen">
       <Card className="w-full max-w-sm">
@@ -24,6 +33,7 @@ const Login = () => {
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
             <Input
+              ref={emailRef}
               id="email"
               type="email"
               placeholder="john@gmail.com"
@@ -32,9 +42,15 @@ const Login = () => {
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" placeholder="john@123" required />
+            <Input
+              ref={passwordRef}
+              id="password"
+              type="password"
+              placeholder="john@123"
+              required
+            />
           </div>
-          <Button className="w-full">Sign in</Button>
+          <Button onClick={handleLoginClick} className="w-full">Sign in</Button>
           <div className="mt-4 text-center text-sm">
             Don't have an account?{" "}
             <Link to={"/auth/register"} className="underline">
